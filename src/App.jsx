@@ -2,7 +2,7 @@ import styles from "./App.module.scss";
 import { CurrentContextProvider } from "./utils";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { Home } from "./pages";
-import { MainLayout } from "./Layout";
+import { MainLayout } from "./layouts";
 
 function App() {
   return (
