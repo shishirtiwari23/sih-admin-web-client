@@ -8,6 +8,7 @@ const Button = ({
   left = false,
   right = false,
   color,
+  type = "button",
   variant = "primary",
   ...remaining
 }) => {
@@ -58,6 +59,7 @@ const Button = ({
         getVariantClass(),
         getBackgroundColor()
       )}
+      type={type}
       style={right ? { flexDirection: "row-reverse" } : {}}
       onClick={onClick}
       {...remaining}

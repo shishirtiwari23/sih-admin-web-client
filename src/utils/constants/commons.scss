@@ -4,6 +4,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: sans-serif;
 }
 
 :root {
@@ -11,7 +12,9 @@
     --clr-warning:rgb(229, 124, 38);
     --clr-error:red;
     --clr-bg: white;
-    --nav-height: 70px;
+    --nav-height: 50px;
+    --horizontal-padding:1rem;
+    --sidemenu-width:230px;
 }
 
 .flexRow {

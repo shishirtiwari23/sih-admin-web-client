@@ -1,4 +1,19 @@
 @import "../../utils/constants/commons.scss";
 
 .container {
+    @extend .flexCol;
+    font-size: 0.9rem;
+    font-weight: 500;
+    align-items: flex-start;
+    label{
+        margin:0.5rem 0;
+        font-size: 0.8rem;
+    }
+    textarea,input{
+        font-weight: 500;
+        padding:0.7rem;
+        min-width: 300px;
+        width: 100%;
+        resize: none;
+    }
 }

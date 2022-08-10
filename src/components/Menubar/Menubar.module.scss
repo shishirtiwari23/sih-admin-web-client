@@ -1,0 +1,14 @@
+@import "../../utils/constants/commons.scss";
+
+.container {
+    background:white;
+    box-shadow: 0 0 2px rgba(black, 0.2);
+    width:var(--sidemenu-width);
+    padding:0 1rem;
+    height: 100vh;
+    padding-top:calc( var(--nav-height) + 1rem);
+    position: fixed;
+    z-index: 5;
+    left:0;
+    top:0;
+}
