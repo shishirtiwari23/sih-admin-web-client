@@ -1,21 +1,35 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { Button, InputFieldText } from "../../components/";
 import styles from "./UploadArticle.module.scss";
 import { useSnackbar } from "notistack";
 import { onValuesChange, convertToSlug } from "../../utils";
+import { ArticleContext } from "../../utils";
 
 const UploadArticle = () => {
+  const { ARTICLE_API } = useContext(ArticleContext);
   const { enqueueSnackbar } = useSnackbar();
   const [values, setValues] = useState({
     title: "",
     content: "",
+    categories: "123",
+    thumbnail:
+      "https://cdn.thinglink.me/api/image/347151190540156928/1024/10/scaletowidth/0/0/1/1/false/true?wait=true",
   });
 
   async function submitHandler(e) {
     e.preventDefault();
-    const reqBody = { ...values, slug: convertToSlug(values?.title) };
-    const res = { status: 1 }; // Axios Call
-    if (res?.status === 1)
+    const reqBody = {
+      ...values,
+
+      createdBy: {
+        id: "123",
+        userType: "Admin",
+      },
+      slug: convertToSlug(values?.title),
+    };
+    const res = await ARTICLE_API.post("/create", reqBody);
+    console.log(res);
+    if (res?.data?.status === "success")
       enqueueSnackbar("Article Published", { variant: "success" });
     else enqueueSnackbar("Failed To Publish Article", { variant: "error" });
   }

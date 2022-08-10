@@ -11,4 +11,12 @@
     z-index: 5;
     left:0;
     top:0;
+    a{
+        padding:1rem;   
+        padding-left: 0;
+    }
+    .links{
+        @extend .flexCol;
+        align-items: flex-start;
+    }
 }

@@ -1,29 +1,44 @@
 import styles from "./App.module.scss";
-import { CurrentContextProvider } from "./utils";
+import {
+  ArticleContextProvider,
+  AuthContextProvider,
+  PrivateRoute,
+} from "./utils";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import { Home, UploadArticle } from "./pages";
-import { MainLayout } from "./layouts";
+import { Home, UploadArticle, Live, Analysis, Login } from "./pages";
+
 import { SnackbarProvider } from "notistack";
 
 function App() {
   return (
-    <CurrentContextProvider>
-      <div className={styles.container}>
-        <SnackbarProvider>
-          <Router basename="/">
-            <Routes>
-              <Route path="/" element={<MainLayout component={Home} />} />
-            </Routes>
-            <Routes>
-              <Route
-                path="/upload-article"
-                element={<MainLayout component={UploadArticle} />}
-              />
-            </Routes>
-          </Router>
-        </SnackbarProvider>
-      </div>
-    </CurrentContextProvider>
+    <AuthContextProvider>
+      <ArticleContextProvider>
+        <div className={styles.container}>
+          <SnackbarProvider>
+            <Router basename="/">
+              <Routes>
+                <Route path="/login" element={<Login />} />
+                {/* </Routes>
+              <Routes> */}
+                <Route path="/" element={<PrivateRoute component={Home} />} />
+                <Route
+                  path="/upload-article"
+                  element={<PrivateRoute component={UploadArticle} />}
+                />
+                <Route
+                  path="/analysis"
+                  element={<PrivateRoute component={Analysis} />}
+                />
+                <Route
+                  path="/live"
+                  element={<PrivateRoute component={Live} />}
+                />
+              </Routes>
+            </Router>
+          </SnackbarProvider>
+        </div>
+      </ArticleContextProvider>
+    </AuthContextProvider>
   );
 }
 

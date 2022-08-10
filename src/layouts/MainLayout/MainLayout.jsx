@@ -1,15 +1,13 @@
 import styles from "./MainLayout.module.scss";
 import { Navbar, Menubar } from "../../components";
-import { useState } from "react";
+import { Children, useState } from "react";
 
-const MainLayout = ({ component: RouteComponent }) => {
+const MainLayout = ({ children }) => {
   return (
     <div className={styles.container}>
       <Navbar />
       <Menubar />
-      <main>
-        <RouteComponent />
-      </main>
+      <main>{children}</main>
     </div>
   );
 };

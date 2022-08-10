@@ -10,4 +10,14 @@
     z-index: 10;
     padding:1rem;
     box-shadow: 0 0 2px rgba(black,0.2);
+    @extend .flexRow;
+    .right,.profile{
+        @extend .flexRow;
+    }
+    .profile{
+        cursor: pointer;
+        svg{
+            margin-left: 0.5rem;
+        }
+    }
 }
