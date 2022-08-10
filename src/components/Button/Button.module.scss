@@ -1,0 +1,54 @@
+@import "../../utils/constants/commons.scss";
+
+.container {
+    cursor: pointer;
+    border:none;
+    &.primary{
+        padding: 0.6rem 1rem;
+        color:white;
+        &.primaryColor {
+            background-color: var(--clr-primary);
+            border:2px solid var(--clr-primary);
+        }
+        &.warningColor {
+            background-color: var(--clr-warning);
+            border: 2px solid var(--clr-warning);
+        }
+        &.errorColor {
+            background-color: var(--clr-error);
+            border: 2px solid var(--clr-error);
+        }
+    }
+    &.secondary {
+        padding: 0.6rem 1rem;
+        background-color: white;
+        &.primaryColor {
+            color: var(--clr-primary);
+            border: 2px solid var(--clr-primary);
+        }
+        &.warningColor {
+            color: var(--clr-warning);
+            border: 2px solid var(--clr-warning);
+        }
+        &.errorColor {
+            color: var(--clr-error);
+            border: 2px solid var(--clr-error);
+        }
+    }
+    &.tertiary {
+        background-color: white;
+        padding:3px;
+        &.primaryColor {
+            color: var(--clr-primary);
+        }
+        &.warningColor {
+            color: var(--clr-warning);
+        }
+        &.errorColor {
+            color: var(--clr-error);
+        }
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+}

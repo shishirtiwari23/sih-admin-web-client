@@ -1,0 +1,26 @@
+*,
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --clr-primary: green;
+    --clr-warning:rgb(229, 124, 38);
+    --clr-error:red;
+    --clr-bg: white;
+    --nav-height: 70px;
+}
+
+.flexRow {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.flexCol {
+    @extend .flexRow;
+    flex-direction: column;
+}
