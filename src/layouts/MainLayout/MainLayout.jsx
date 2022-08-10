@@ -8,7 +8,6 @@ const MainLayout = ({ component: RouteComponent }) => {
   return (
     <div className={styles.container}>
       <Navbar />
-      <InputFieldText id="inputName" label="Input Name" />
       <RouteComponent />
     </div>
   );
