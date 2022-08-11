@@ -1,5 +1,5 @@
 import { useState, createContext, useEffect } from "react";
-import { decodeToken } from "react-jwt";
+import { decodeToken, isExpired } from "react-jwt";
 
 const AuthContext = createContext({});
 
@@ -8,6 +8,11 @@ export const AuthContextProvider = (props) => {
 
   useEffect(() => {
     const user = localStorage.getItem("token");
+    if (isExpired(user)) {
+      localStorage.removeItem("token");
+      setCurrentUser(null);
+      return;
+    }
     if (user) {
       setCurrentUser(decodeToken(user));
     }
