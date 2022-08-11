@@ -4,4 +4,7 @@
     padding:0 var(--horizontal-padding);
     padding-top:calc( var(--nav-height) + 1rem);
     padding-left: calc( var(--sidemenu-width) + 1rem);
+    main{
+        padding:0 1rem;
+    }
 }

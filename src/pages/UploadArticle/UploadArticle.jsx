@@ -1,12 +1,52 @@
 import { useState, useContext } from "react";
-import { Button, InputFieldText } from "../../components/";
 import styles from "./UploadArticle.module.scss";
 import { useSnackbar } from "notistack";
 import { onValuesChange, convertToSlug } from "../../utils";
 import { ArticleContext } from "../../utils";
+import { TextField, Button } from "@mui/material";
+import { CreatableMultipleSelect } from "../../components";
 
 const UploadArticle = () => {
   const { ARTICLE_API } = useContext(ArticleContext);
+  const [categoryOptions, setCategoryOptions] = useState([
+    {
+      name: "Vlog",
+      value: "vlog",
+    },
+    {
+      name: "Makeup",
+      value: "makeup",
+    },
+    {
+      name: "Genz",
+      value: "genz",
+    },
+    {
+      name: "Skincare",
+      value: "skincare",
+    },
+    {
+      name: "Fitness",
+      value: "fitness",
+    },
+    {
+      name: "Couple",
+      value: "couple",
+    },
+    {
+      name: "Dance",
+      value: "dance",
+    },
+    {
+      name: "Comedy",
+      value: "comedy",
+    },
+    {
+      name: "Music",
+      value: "music",
+    },
+  ]);
+  const [category, setCategory] = useState([]);
   const { enqueueSnackbar } = useSnackbar();
   const [values, setValues] = useState({
     title: "",
@@ -15,6 +55,10 @@ const UploadArticle = () => {
     thumbnail:
       "https://cdn.thinglink.me/api/image/347151190540156928/1024/10/scaletowidth/0/0/1/1/false/true?wait=true",
   });
+
+  async function handleAddCategory(newCategory) {
+    console.log(newCategory);
+  }
 
   async function submitHandler(e) {
     e.preventDefault();
@@ -37,23 +81,38 @@ const UploadArticle = () => {
   return (
     <div className={styles.container}>
       <form onSubmit={submitHandler} action="">
-        <InputFieldText
+        <TextField
           required
           id="title"
           value={values?.title}
           onChange={(e) => onValuesChange(e, setValues)}
-          variant="small"
           label="Title"
+          variant="outlined"
         />
-        <InputFieldText
+        <CreatableMultipleSelect
           required
+          options={categoryOptions}
+          width="100%"
+          setValue={setCategory}
+          id="brandSector"
+          value={category}
+          label={"Category"}
+          onAddModalSubmit={handleAddCategory}
+        />
+        <TextField
+          required
+          multiline
+          maxRows={16}
+          minRows={4}
           id="content"
           value={values?.content}
           onChange={(e) => onValuesChange(e, setValues)}
-          variant="large"
           label="Content"
+          variant="outlined"
         />
-        <Button type="submit">Submit</Button>
+        <Button variant="contained" type="submit">
+          Submit
+        </Button>
       </form>
     </div>
   );

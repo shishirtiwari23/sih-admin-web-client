@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { decodeToken } from "react-jwt";
 import axios from "axios";
 import { AuthContext, onValuesChange } from "../../utils";
-import { Button, InputFieldText } from "../../components";
+import { TextField, Button } from "@mui/material";
 
 const Login = () => {
   const navigate = useNavigate();
@@ -65,23 +65,26 @@ const Login = () => {
   return (
     <div className={styles.container}>
       <form onSubmit={handleSubmit} action="">
-        <InputFieldText
-          required
+        <TextField
           id="email"
           type="email"
           value={values?.email}
           onChange={(e) => onValuesChange(e, setValues)}
           label="Email"
+          variant="outlined"
         />
-        <InputFieldText
+        <TextField
           required
           id="password"
           type="password"
           value={values?.password}
           onChange={(e) => onValuesChange(e, setValues)}
           label="Password"
+          variant="outlined"
         />
-        <Button type="submit">Login</Button>
+        <Button variant="contained" type="submit">
+          Login
+        </Button>
       </form>
     </div>
   );

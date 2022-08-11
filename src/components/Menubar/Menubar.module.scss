@@ -12,11 +12,8 @@
     left:0;
     top:0;
     a{
-        padding:1rem;   
-        padding-left: 0;
-    }
-    .links{
-        @extend .flexCol;
-        align-items: flex-start;
+        width: 100%;
+        text-decoration: none;
+        color:var(--clr-text-light);
     }
 }

@@ -26,7 +26,7 @@ function App() {
                   element={<PrivateRoute component={UploadArticle} />}
                 />
                 <Route
-                  path="/analysis"
+                  path="/analytics"
                   element={<PrivateRoute component={Analysis} />}
                 />
                 <Route
