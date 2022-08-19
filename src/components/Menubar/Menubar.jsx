@@ -62,7 +62,7 @@ const Menubar = () => {
                   <StyledListItemIcon>
                     <MdCloudUpload />
                   </StyledListItemIcon>
-                  <ListItemText primary={"Upload Articles"} />
+                  <ListItemText primary={"Upload Article"} />
                 </ListItemButton>
               </NavLink>
             </StyledListItem>
