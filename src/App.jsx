@@ -5,7 +5,15 @@ import {
   PrivateRoute,
 } from "./utils";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import { Home, UploadArticle, Live, Analysis, Login } from "./pages";
+import {
+  Home,
+  UploadArticle,
+  ManageArticle,
+  Live,
+  Analysis,
+  Login,
+  Article,
+} from "./pages";
 
 import { SnackbarProvider } from "notistack";
 
@@ -22,7 +30,15 @@ function App() {
               <Routes> */}
                 <Route path="/" element={<PrivateRoute component={Home} />} />
                 <Route
-                  path="/upload-article"
+                  path="/articles/manage"
+                  element={<PrivateRoute component={ManageArticle} />}
+                />
+                <Route
+                  path="/articles/:id"
+                  element={<PrivateRoute component={Article} />}
+                />
+                <Route
+                  path="/articles/upload"
                   element={<PrivateRoute component={UploadArticle} />}
                 />
                 <Route

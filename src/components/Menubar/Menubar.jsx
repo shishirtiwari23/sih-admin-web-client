@@ -56,13 +56,28 @@ const Menubar = () => {
                 className={(isActive) =>
                   isActive ? clsx(styles.link, styles.active) : styles.link
                 }
-                to="/upload-article"
+                to="/articles/upload"
               >
                 <ListItemButton>
                   <StyledListItemIcon>
                     <MdCloudUpload />
                   </StyledListItemIcon>
-                  <ListItemText primary={"Upload Article"} />
+                  <ListItemText primary={"Upload Articles"} />
+                </ListItemButton>
+              </NavLink>
+            </StyledListItem>
+            <StyledListItem disablePadding>
+              <NavLink
+                className={(isActive) =>
+                  isActive ? clsx(styles.link, styles.active) : styles.link
+                }
+                to="/articles/manage"
+              >
+                <ListItemButton>
+                  <StyledListItemIcon>
+                    <MdCloudUpload />
+                  </StyledListItemIcon>
+                  <ListItemText primary={"Manage Articles"} />
                 </ListItemButton>
               </NavLink>
             </StyledListItem>

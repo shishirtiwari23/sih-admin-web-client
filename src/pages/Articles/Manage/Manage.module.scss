@@ -1,0 +1,13 @@
+@import "../../../utils/constants/commons.scss";
+
+.container{
+    
+}
+.loadingContainer{
+    width: 100%;
+    height: 100%;
+    @extend .flexRow;
+    justify-content: center;
+    align-items: center;
+    margin-top:30vh;
+}

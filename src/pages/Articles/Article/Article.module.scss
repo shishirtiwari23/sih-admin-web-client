@@ -1,0 +1,40 @@
+@import "../../../utils/constants/commons.scss";
+
+.container{
+    img{
+        width:500px;
+    }
+    .header{
+        @extend .flexRow;
+        .moreInfo{
+            @extend .flexRow;   
+        }
+        h2{
+            color:rgb(59, 59, 59);
+        }
+    }
+    .icon{
+        @extend .flexRow;
+        font-size: 0.9rem;
+        margin:0 2rem;
+        span{
+            margin-left: 0.4rem;
+        }
+    }
+    .main{
+        @extend .flexRow;
+        padding:1rem 0  ;
+        align-items: flex-start;
+    }
+    .footer{
+        @extend .flexRow;
+        margin-top: 4rem;
+        p{
+            font-size: 0.9rem;
+            color:grey;
+            span{
+                color:rgb(73, 73, 73);
+            }
+        }
+    }
+}

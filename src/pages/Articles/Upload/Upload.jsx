@@ -1,10 +1,10 @@
 import { useState, useContext } from "react";
-import styles from "./UploadArticle.module.scss";
+import styles from "./Upload.module.scss";
 import { useSnackbar } from "notistack";
-import { onValuesChange, convertToSlug } from "../../utils";
-import { ArticleContext } from "../../utils";
+import { onValuesChange, convertToSlug } from "../../../utils";
+import { ArticleContext } from "../../../utils";
 import { TextField, Button } from "@mui/material";
-import { CreatableMultipleSelect } from "../../components";
+import { CreatableMultipleSelect } from "../../../components";
 
 const UploadArticle = () => {
   const { ARTICLE_API } = useContext(ArticleContext);
@@ -52,8 +52,6 @@ const UploadArticle = () => {
     title: "",
     content: "",
     categories: "123",
-    thumbnail:
-      "https://cdn.thinglink.me/api/image/347151190540156928/1024/10/scaletowidth/0/0/1/1/false/true?wait=true",
   });
 
   async function handleAddCategory(newCategory) {
@@ -98,6 +96,14 @@ const UploadArticle = () => {
           value={category}
           label={"Category"}
           onAddModalSubmit={handleAddCategory}
+        />
+        <TextField
+          required
+          id="thumbnail"
+          value={values?.thumbnail}
+          onChange={(e) => onValuesChange(e, setValues)}
+          label="Thhumnail"
+          variant="outlined"
         />
         <TextField
           required
