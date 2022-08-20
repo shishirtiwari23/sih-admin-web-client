@@ -2,7 +2,26 @@
 
 .container{
     
+    
 }
+form {
+    @extend .flexCol;
+
+    >div {
+        width: 100%;
+        margin: 0.4rem 0;
+
+        label,
+        input,
+        textarea {
+            font-size: 0.9rem;
+        }
+    }
+
+    button {
+        margin: 1rem 0;
+    }
+}   
 .loadingContainer{
     width: 100%;
     height: 100%;
