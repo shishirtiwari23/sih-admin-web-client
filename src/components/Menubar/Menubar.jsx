@@ -12,17 +12,21 @@ import {
   ListItemButton,
   ListItemIcon,
 } from "@mui/material";
-import { AiFillHome } from "react-icons/ai";
-import { MdCloudUpload, MdOutlineArticle } from "react-icons/md";
-import { RiLiveFill } from "react-icons/ri";
+import {
+  AiOutlineNotification,
+  AiOutlineSetting,
+  AiOutlineUpload,
+} from "react-icons/ai";
+import { MdOutlineArticle } from "react-icons/md";
+import { RiHome5Line, RiLiveLine } from "react-icons/ri";
 import { TbPresentationAnalytics } from "react-icons/tb";
 import { styled } from "@mui/system";
-import { IoMdSettings, IoMdAdd } from "react-icons/io";
+import { IoMdAdd } from "react-icons/io";
 
 const navData = [
   {
     name: "Home",
-    icon: <AiFillHome />,
+    icon: <RiHome5Line />,
     to: "/",
   },
   {
@@ -32,19 +36,19 @@ const navData = [
     item: [
       {
         name: "Upload",
-        icon: <MdCloudUpload />,
+        icon: <AiOutlineUpload />,
         to: "/articles/upload",
       },
       {
         name: "Manage",
-        icon: <IoMdSettings />,
+        icon: <AiOutlineSetting />,
         to: "/articles/manage ",
       },
     ],
   },
   {
     name: "Livestream",
-    icon: <RiLiveFill />,
+    icon: <RiLiveLine />,
     // to:'/',
     item: [
       {
@@ -54,10 +58,15 @@ const navData = [
       },
       {
         name: "Manage",
-        icon: <IoMdSettings />,
+        icon: <AiOutlineSetting />,
         to: "/livestream/manage",
       },
     ],
+  },
+  {
+    name: "Push Notification",
+    icon: <AiOutlineNotification />,
+    to: "/notification",
   },
   {
     name: "Analytics",

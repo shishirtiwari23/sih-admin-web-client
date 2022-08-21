@@ -105,7 +105,7 @@ const UploadArticle = () => {
           id="thumbnail"
           value={values?.thumbnail}
           onChange={(e) => onValuesChange(e, setValues)}
-          label="Thhumnail"
+          label="Thumbnail"
           variant="outlined"
         />
         <TextField

@@ -15,6 +15,7 @@ import {
   Login,
   SingleArticle,
   NotFound,
+  Notification,
 } from "./pages";
 
 import { SnackbarProvider } from "notistack";
@@ -59,6 +60,10 @@ function App() {
                 <Route
                   path="/analytics"
                   element={<PrivateRoute component={Analysis} />}
+                />
+                <Route
+                  path="/notification"
+                  element={<PrivateRoute component={Notification} />}
                 />
               </Routes>
             </Router>
