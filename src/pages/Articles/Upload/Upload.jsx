@@ -47,7 +47,7 @@ const UploadArticle = () => {
     },
   ]);
   const [category, setCategory] = useState([]);
-  const { enqueueSnackbar } = useSnackbar();
+  const { enqueueSnackbar, closeSnackbar } = useSnackbar();
   const [values, setValues] = useState({
     title: "",
     content: "",
@@ -59,25 +59,39 @@ const UploadArticle = () => {
   }
 
   async function submitHandler(e) {
-    e.preventDefault();
-    const reqBody = {
-      ...values,
-      content: { en: values?.content || "" },
-      createdBy: {
-        id: "123",
-        userType: "Admin",
-      },
-      slug: convertToSlug(values?.title),
-    };
-    const res = await ARTICLE_API.post("/create", reqBody);
-    console.log(res);
-    if (res?.data?.status === "success")
-      enqueueSnackbar("Article Published", { variant: "success" });
-    else enqueueSnackbar("Failed To Publish Article", { variant: "error" });
+    try {
+      e.preventDefault();
+      const reqBody = {
+        ...values,
+        content: { en: values?.content || "" },
+        createdBy: {
+          id: "123",
+          userType: "Admin",
+        },
+        slug: convertToSlug(values?.title),
+      };
+      const res = await ARTICLE_API.post("/create", reqBody);
+      pushSnackbar("Article Published", "success");
+    } catch (error) {
+      pushSnackbar("Failed To Publish Article", "error");
+    }
   }
   useEffect(() => {
     console.log(category);
   });
+  function pushSnackbar(msg, variant, time) {
+    if (variant) {
+      enqueueSnackbar(msg, { variant });
+      setTimeout(() => {
+        closeSnackbar();
+      }, time);
+    } else {
+      enqueueSnackbar(msg);
+      setTimeout(() => {
+        closeSnackbar();
+      }, 5000);
+    }
+  }
 
   return (
     <div className={styles.container}>

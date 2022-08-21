@@ -44,12 +44,14 @@ const Add = () => {
       <form onSubmit={handleSubmit}>
         <TextField
           label="Title"
+          required
           value={values?.title}
           onChange={handleChange("title")}
         />
         <TextField
           label="Link"
           margin="normal"
+          required
           value={values?.videoUrl}
           onChange={handleChange("videoUrl")}
         />
