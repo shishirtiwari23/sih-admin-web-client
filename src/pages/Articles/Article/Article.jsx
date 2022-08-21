@@ -56,7 +56,7 @@ const Article = () => {
         </div>
       </div>
       <div className={styles.main}>
-        <p>{article?.content}</p>
+        <p>{article?.content?.en}</p>
         <img src={article?.thumbnail} alt={article?.title} />
       </div>
       <div className={styles.footer}>

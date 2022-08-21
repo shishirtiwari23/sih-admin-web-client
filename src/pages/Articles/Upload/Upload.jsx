@@ -62,7 +62,7 @@ const UploadArticle = () => {
     e.preventDefault();
     const reqBody = {
       ...values,
-
+      content: { en: values?.content || "" },
       createdBy: {
         id: "123",
         userType: "Admin",

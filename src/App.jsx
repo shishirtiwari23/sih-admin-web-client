@@ -9,10 +9,12 @@ import {
   Home,
   UploadArticle,
   ManageArticle,
-  Live,
+  AddLive,
+  ManageLive,
   Analysis,
   Login,
-  Article,
+  SingleArticle,
+  NotFound,
 } from "./pages";
 
 import { SnackbarProvider } from "notistack";
@@ -29,25 +31,34 @@ function App() {
                 {/* </Routes>
               <Routes> */}
                 <Route path="/" element={<PrivateRoute component={Home} />} />
-                <Route
-                  path="/articles/manage"
-                  element={<PrivateRoute component={ManageArticle} />}
-                />
-                <Route
-                  path="/articles/:id"
-                  element={<PrivateRoute component={Article} />}
-                />
-                <Route
-                  path="/articles/upload"
-                  element={<PrivateRoute component={UploadArticle} />}
-                />
+
+                <Route path="articles">
+                  <Route
+                    path=":id"
+                    element={<PrivateRoute component={SingleArticle} />}
+                  />
+                  <Route
+                    path="manage"
+                    element={<PrivateRoute component={ManageArticle} />}
+                  />
+                  <Route
+                    path="upload"
+                    element={<PrivateRoute component={UploadArticle} />}
+                  />
+                </Route>
+                <Route path="livestream">
+                  <Route
+                    path="add"
+                    element={<PrivateRoute component={AddLive} />}
+                  />
+                  <Route
+                    path="manage"
+                    element={<PrivateRoute component={ManageLive} />}
+                  />
+                </Route>
                 <Route
                   path="/analytics"
                   element={<PrivateRoute component={Analysis} />}
-                />
-                <Route
-                  path="/live"
-                  element={<PrivateRoute component={Live} />}
                 />
               </Routes>
             </Router>

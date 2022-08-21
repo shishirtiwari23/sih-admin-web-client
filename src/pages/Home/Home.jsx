@@ -19,7 +19,7 @@ const Home = () => {
 
   return (
     <section className={styles.container}>
-      {data?.map((item, i) => (
+      {/* {data?.map((item, i) => (
         <div key={item.title + i}>
           <h2>{item.title}</h2>
           <p>{item.content}</p>
@@ -27,7 +27,7 @@ const Home = () => {
           <br />
           <br />
         </div>
-      ))}
+      ))} */}
     </section>
   );
 };

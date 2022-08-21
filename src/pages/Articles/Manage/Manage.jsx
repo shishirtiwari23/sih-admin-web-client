@@ -257,6 +257,7 @@ const EditModal = ({ id, open, setOpen }) => {
   const { ARTICLE_API } = useContext(ArticleContext);
   const [values, setValues] = useState({});
   const { enqueueSnackbar } = useSnackbar();
+  const [tempContent, setTempContent] = useState("");
   const [categoryOptions, setCategoryOptions] = useState([
     {
       name: "Vlog",
@@ -303,14 +304,16 @@ const EditModal = ({ id, open, setOpen }) => {
     e.preventDefault();
     const reqBody = {
       ...values,
-
-      createdBy: {
-        id: "123",
-        userType: "Admin",
-      },
-      slug: convertToSlug(values?.title),
+      id,
+      content: values?.content || {},
+      // createdBy: {
+      //   id: "123",
+      //   userType: "Admin",
+      // },
+      // slug: convertToSlug(values?.title),
     };
-    const res = await ARTICLE_API.post("/update", reqBody);
+    console.log(reqBody);
+    const res = await ARTICLE_API.patch("/update", reqBody);
     console.log(res);
     if (res?.data?.status === "success")
       enqueueSnackbar("Article Updated", { variant: "success" });
@@ -328,6 +331,7 @@ const EditModal = ({ id, open, setOpen }) => {
         const newArticle = res.data;
         console.log(newArticle);
         setValues(newArticle);
+        setTempContent(newArticle?.content?.en);
       } else {
         enqueueSnackbar("Failed To Fetch Article", { variant: "error" });
       }
@@ -400,8 +404,8 @@ const EditModal = ({ id, open, setOpen }) => {
                 minRows={4}
                 margin="normal"
                 id="content"
-                value={values?.content}
-                onChange={(e) => onValuesChange(e, setValues)}
+                value={tempContent}
+                onChange={(e) => setTempContent(e.target.value)}
                 label="Content"
                 variant="outlined"
               />
