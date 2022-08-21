@@ -92,8 +92,8 @@ const NavSection = ({ data }) => {
         )}
       </StyledListItem>
       <div className={styles.subList}>
-        {data?.item?.map((item) => (
-          <StyledListItem disablePadding>
+        {data?.item?.map((item, index) => (
+          <StyledListItem key={index} disablePadding>
             <NavLink
               className={(isActive) =>
                 isActive ? clsx(styles.link, styles.active) : styles.link
@@ -133,8 +133,8 @@ const Menubar = () => {
         <Toolbar />
         <Box sx={{ overflow: "auto" }}>
           <List>
-            {navData?.map((item) => {
-              return <NavSection data={item} />;
+            {navData?.map((item, index) => {
+              return <NavSection key={index} data={item} />;
             })}
           </List>
         </Box>
