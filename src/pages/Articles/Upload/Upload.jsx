@@ -1,4 +1,4 @@
-import { useState, useContext } from "react";
+import { useState, useContext, useEffect } from "react";
 import styles from "./Upload.module.scss";
 import { useSnackbar } from "notistack";
 import { onValuesChange, convertToSlug } from "../../../utils";
@@ -75,6 +75,9 @@ const UploadArticle = () => {
       enqueueSnackbar("Article Published", { variant: "success" });
     else enqueueSnackbar("Failed To Publish Article", { variant: "error" });
   }
+  useEffect(() => {
+    console.log(category);
+  });
 
   return (
     <div className={styles.container}>
@@ -94,7 +97,7 @@ const UploadArticle = () => {
           setValue={setCategory}
           id="brandSector"
           value={category}
-          label={"Category"}
+          label={"Categories"}
           onAddModalSubmit={handleAddCategory}
         />
         <TextField

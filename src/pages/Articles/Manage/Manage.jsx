@@ -171,16 +171,20 @@ const Manage = () => {
           experimentalFeatures={{ newEditingApi: true }}
         />
       </Box>
-      <ConfirmationModal
-        id={articleId}
-        open={isModalOpen}
-        setOpen={setIsModalOpen}
-      />
-      <EditModal
-        id={articleId}
-        open={isEditModalOpen}
-        setOpen={setIsEditModalOpen}
-      />
+      {isModalOpen && (
+        <ConfirmationModal
+          id={articleId}
+          open={isModalOpen}
+          setOpen={setIsModalOpen}
+        />
+      )}
+      {isEditModalOpen && (
+        <EditModal
+          id={articleId}
+          open={isEditModalOpen}
+          setOpen={setIsEditModalOpen}
+        />
+      )}
     </div>
   );
 };
