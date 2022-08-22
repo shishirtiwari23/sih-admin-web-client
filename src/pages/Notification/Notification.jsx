@@ -36,7 +36,6 @@ const Notification = () => {
     try {
       const res = await NOTIFICATION_API.post("/publish", {
         ...values,
-        status: "101",
       });
       console.log(res);
       pushSnackbar("Notification Published Successfully", "success");
@@ -61,21 +60,14 @@ const Notification = () => {
           value={values?.body}
           onChange={handleChange("body")}
         />
-        {/* <TextField value={values?.message} onChange={handleChange("message")} /> */}
         <TextField
           sx={{ margin: "0.5rem 0" }}
-          label="Icon (Optional)"
-          value={values?.icon}
-          onChange={handleChange("icon")}
-        />
-        <TextField
-          sx={{ margin: "0.5rem 0" }}
-          label="Big Icon (Optional)"
-          value={values?.bigIcon}
-          onChange={handleChange("bigIcon")}
+          label="Image (Optional)"
+          value={values?.image}
+          onChange={handleChange("image")}
         />
         <Button variant="contained" type="submit">
-          Push
+          Brodcast
         </Button>
       </form>
     </div>
